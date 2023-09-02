@@ -1,28 +1,16 @@
-﻿Console.Clear();
+﻿using System.Text;
+
 string[] array = { "Hello", "2", "world", "!!!" };
 PrintArray(array);
 Console.Write(" -> ");
 
-int sizeNewArray = ArrLength(array);
+PrintArray(NewArray(array));
 
-string[] result = NewArray(array);
-
-PrintArray(result);
-
-int ArrLength(string[] array)
-{
-    int count = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i].Length <= 3) count++;
-    }
-    return count;
-}
 
 string[] NewArray(string[] array)
 {
     int index = 0;
-    string[] result = new string[sizeNewArray];
+    string[] result = new string[array.Length];
 
     for (int i = 0; i < array.Length; i++)
     {
@@ -37,11 +25,11 @@ string[] NewArray(string[] array)
 
 void PrintArray(string[] arr)
 {
-    Console.Write("[");
-    for (int i = 0; i < arr.Length; i++)
+    StringBuilder sb = new StringBuilder();   
+    foreach (var item in arr)
     {
-        if (i < arr.Length - 1) Console.Write($"{arr[i]}, ");
-        else Console.Write($"{arr[i]}");
+        sb.Append(item+",");
     }
-    Console.Write("]");
+
+    Console.Write($"[{sb.ToString().TrimEnd(',')}]"); 
 }

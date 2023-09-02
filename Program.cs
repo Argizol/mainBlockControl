@@ -34,10 +34,7 @@ string[] NewArray(string[] array)
     }
     return result;
 }
-// void PrintArray(string[] arr)
-// {
-//   Console.WriteLine("[{0}]", string.Join(", ", arr));
-// }
+
 void PrintArray(string[] arr)
 {
     Console.Write("[");
